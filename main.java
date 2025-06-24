@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class main{
+public class Main{
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         ListaAlunos lista = new ListaAlunos();
@@ -34,21 +34,35 @@ public class main{
                 data = teclado.nextLine();
 
                 /*lista.inserir(new Aluno (numMatricula, nome, contato, curso, admissão));*/
-                lista.inserir(new Aluno (numMatricula, nome, contato,curso, data));
+                lista.inserir(new Aluno (numMatricula, nome, contato, curso, data));
             }
             case 2 ->{
-
+                System.out.print("Matrícula do aluno: "); int m = teclado.nextInt(); teclado.nextLine();
+                System.out.print("Novo contato: "); String novo = teclado.nextLine();
+                if (lista.alterarContato(m, novo)) {
+                    System.out.println("Contato atualizado com sucesso.");
+                } else {
+                    System.out.println("Aluno não encontrado.");
+                }
             }
             case 3 ->{
-
+                System.out.print("Matricula a remover: ");
+                int matricula = teclado.nextInt();
+                if (lista.remover(matricula)){
+                    System.out.println("Aluno removido");
+                }
+                else{
+                    System.out.println("Aluno não encontrado");
+                }
             }
-            case 4 ->{
-
-            }
+            case 4 -> lista.imprimirTodos();
             case 5 ->{
-
+                System.out.print("Curso: "); String c = teclado.nextLine();
+                lista.imprimirPorCurso(c);
             }
             case 6 ->{
+                 System.out.print("Matrícula: "); int m = teclado.nextInt();
+                    lista.buscarPorMatricula(m);
 
             }
             case 0 ->{

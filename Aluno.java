@@ -1,16 +1,31 @@
-public class Aluno{
+import java.time.LocalDate;
+
+public class Aluno {
     private int matricula;
     private String nome;
-    private int contato;
+    private String contato;
     private String curso;
-    private String data;
+    private LocalDate dataAdmissao;
 
-    public Aluno(int numMatricula, String nome, int contato, String curso, String data){
+    public Aluno(int matricula, String nome, String contato, String curso, LocalDate dataAdmissao) {
         this.matricula = matricula;
         this.nome = nome;
         this.contato = contato;
         this.curso = curso;
-        this.data = data;
+        this.dataAdmissao = dataAdmissao;
+    }
 
+    public int getMatricula() { return matricula; }
+    public String getNome() { return nome; }
+    public String getContato() { return contato; }
+    public String getCurso() { return curso; }
+    public LocalDate getDataAdmissao() { return dataAdmissao; }
+
+    public void setContato(String contato) { this.contato = contato; }
+
+    @Override
+    public String toString() {
+        return "Matrícula: " + matricula + ", Nome: " + nome + ", Contato: " + contato +
+               ", Curso: " + curso + ", Data admissão: " + dataAdmissao;
     }
 }
